@@ -1,6 +1,6 @@
 # convertPEMtoDER.sh
 
-## Porpose
+## Purpose
 
 This bash script converts a SSL certificate from PEM-format into DER-format.<br>
 DER is a binary format primarily used by Micosoft, PEM is an ASCII representation for binary data.

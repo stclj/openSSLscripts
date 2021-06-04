@@ -1,6 +1,6 @@
 # getWebserverNames.sh
 
-## Porpose
+## Purpose
 
 This bash script connect to a SSL/TLS server and display information about the presented certificate.<br>
 Information that are shown:
