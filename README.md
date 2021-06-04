@@ -2,13 +2,16 @@
 
 ## Purpose
 
-Litte (bash) scripts that use openSSL to
+Litte (bash) scripts that use openSSL to ...
 * gather informations about certificates provided by SSL/TLS servers
 * convert SSL certificates
 
 ## Repository structure
 
+File or directory | Purpose
+------------------|--------
 `README.md`       | This document
+`LICENSE`         | MIT license
 `openSSLscripts/` | directory containing the actual scripts
 `docs/`           | directory containing the documentation to the scripts
 
