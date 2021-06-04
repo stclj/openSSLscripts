@@ -37,7 +37,7 @@ presented certificate chain:
 
 ### `openssl s_client`
 
-* Connects to a SSL/TLS server (like "`telnet server port`", but SSL/TLS encrypted)
+* Connects to a SSL/TLS server (like "`telnet server port`", but SSL/TLS encrypted)<br>
   and - as a side effect - gives several information of the active SSL/TLS-session including the certificate(s).
 * in script: `openssl s_client $EXTRAOPTS -showcerts -connect $SERVERADDRESS:$SERVERPORT`
   * `-showcerts` adds the full certificate chain to the output, otherwise only the server's certificate is shown.
@@ -58,7 +58,7 @@ presented certificate chain:
 
 ### `sed`
 
-* The `sed` commands on Linux and MacOS are different (= have different options / syntax), so we have to test which version we have.<br>
+* The `sed` commands on Linux and MacOS are different (= have different options / syntax), so we have to test which one is running.<br>
   `if sed --version 2>/dev/null | head -1 | grep -q GNU`
 * On MacOS the syntax looks a bit complex to replace all comma+space combinations (`, `) with new lines and an identation:
   ```bash
@@ -69,5 +69,4 @@ presented certificate chain:
   * `\n` converts to a newline.
   * `\<newline>` is send to sed.
   * it needs to be ecaped for sed, so sed won't end, but show the newline-
-
 

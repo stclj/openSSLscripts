@@ -14,7 +14,7 @@ convertPEMtoDER.sh <PEM-filename> <DER-filename>
 * if `<PEM-filename>` is "`-`" (the minus sign), the PEM certificate is expected on stdin,<br>
   otherwise it must be a file containing the PEM encoded certificate.
 * `<DER-filename>` is the name of the file the DER encoded certificate is written to.
-* **This scipt won't override the output file!**
+* **This scipt won't override the output file!**<br>
   If the `<DER-filename>` already exist, the script will stop.
 
 ## Some explanations

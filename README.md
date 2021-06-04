@@ -24,6 +24,6 @@ File or directory | Purpose
 ## Author
 
 * Steffen Clausjuergens
-* GitHub [stclj](https://github.com/stclj)
-* Twitter [@stclj](https://twitter.com/stclj)
+  * GitHub [stclj](https://github.com/stclj)
+  * Twitter [@stclj](https://twitter.com/stclj)
 

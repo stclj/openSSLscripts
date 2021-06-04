@@ -14,7 +14,7 @@ convertDERtoPEM.sh <DER-filename> [<PEM-filename>]
 * `<DER-filename>` is the name of a file containing the DER encoded certificate.
 * `<PEM-filename>` is the name of a file the PEM encoded certificate should be written to.<br>
   If this is ommitted, the PEM encoded certificate is send to stdout.
-* **This scipt won't override the output file!*
+* **This scipt won't override the output file!**<br>
   If the `<PEM-filename>` already exist, the script will stop.
 
 ## Some explanations
