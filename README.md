@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Litte (bash) scripts that use openSSL to ...
+Little (bash) scripts that use openSSL to ...
 * gather informations about certificates provided by SSL/TLS servers
 * convert SSL certificates
 
