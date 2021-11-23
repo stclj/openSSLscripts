@@ -39,11 +39,12 @@ presented certificate chain:
 
 * Connects to a SSL/TLS server (like "`telnet server port`", but SSL/TLS encrypted)<br>
   and - as a side effect - gives several information of the active SSL/TLS-session including the certificate(s).
-* in script: `openssl s_client $EXTRAOPTS -showcerts -connect $SERVERADDRESS:$SERVERPORT`
+* in script: `openssl s_client $EXTRAOPTS -showcerts -connect $SERVERADDRESS:$SERVERPORT -servername $SERVERADDRESS`
   * `-showcerts` adds the full certificate chain to the output, otherwise only the server's certificate is shown.
   * `-starttls smtp` uses a SMTP dialog to connect in cleartext and then sends `STARTTLS` to switch to SSL/TLS and finaly will get the certificate
+  * `-servername <servername>` adds the TLS SNI (Server Name Indication) extension to the request
 * Examples:
-  * `openssl s_client -connect www.example.com:443`
+  * `openssl s_client -connect www.example.com:443 -servername www.example.com`
   * `openssl s_client -showcerts -starttls smtp -connect mail.example.com:25`
 
 ### `openssl x509`

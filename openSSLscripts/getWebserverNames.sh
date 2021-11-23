@@ -46,7 +46,7 @@ fi
 # connect with openssl including certificate output,
 # decode it's values and pritty print them
 echo "" |
-openssl s_client $EXTRAOPTS -connect $SERVERADDRESS:$SERVERPORT 2>/dev/null |
+openssl s_client $EXTRAOPTS -connect $SERVERADDRESS:$SERVERPORT -servername $SERVERADDRESS 2>/dev/null |
 openssl x509 -noout -text |
 if [ $GNUSED ] ; then
    # it's Linux (GNU sed):
@@ -76,7 +76,7 @@ fi
 echo "presented certificate chain:"
 
 echo "" |
-openssl s_client $EXTRAOPTS -showcerts -connect $SERVERADDRESS:$SERVERPORT 2>/dev/null |
+openssl s_client $EXTRAOPTS -showcerts -connect $SERVERADDRESS:$SERVERPORT -servername $SERVERADDRESS 2>/dev/null |
 if [ $GNUSED ] ; then
    # it's Linux (GNU sed):
    sed -n "s|^\( *[0-9]\+ s:\).*/\(CN=[^/]\+\)\(/.*\)*$|        \1 \2|p"
