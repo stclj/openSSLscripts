@@ -6,6 +6,8 @@ Little (bash) scripts that use openSSL to ...
 * gather informations about certificates provided by SSL/TLS servers
 * convert SSL certificates
 
+They can be found at <https://github.com/stclj/openSSLscripts>.
+
 ## Repository structure
 
 File or directory | Purpose

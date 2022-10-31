@@ -6,6 +6,8 @@
 #        <PEM-filename> : name of file to import PEM formatted certificate from
 #                         specify "-" to get PEM certificate from stdin
 #        <DER-filename> : name of file to write DER formatted certificate to
+#
+# This script can be found at: https://github.com/stclj/openSSLscripts
 
 # Check if in- and output files are specified
 

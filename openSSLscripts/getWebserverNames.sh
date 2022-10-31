@@ -10,6 +10,8 @@
 #        <SSL-port>          : optional, destination port
 #                              default = 443
 #                              if 25, STARTTLS will be used
+#
+# This script can be found at: https://github.com/stclj/openSSLscripts
 
 # Check if server is specified. If not print usage message
 if [ -z "$1" ] ; then

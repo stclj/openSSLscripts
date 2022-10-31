@@ -6,6 +6,8 @@
 #        <DER-filename> : name of file to import DER formatted certificate from
 #        <PEM-filename> : name of file to write PEM formatted certificate to
 #                         optional, if omitted show PEM on stdout
+#
+# This script can be found at: https://github.com/stclj/openSSLscripts
 
 # Check if input file is specified and exist. If not print usage message
 
