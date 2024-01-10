@@ -38,31 +38,36 @@ fi
 
 SERVERADDRESS="$1"
 
-# check if provided address is valid
-# if the test with getent does not work for you comment out this section
-# beginning here
-getent ahosts "$SERVERADDRESS" 2>/dev/null >/dev/null
-case "$?" in
-  0)   # test was successfull
-       ;;
-  1)   echo "Test command \"getent\" does not support the database \"ahosts\" !" >&2
-       echo "This script can run without the test, if you comment it out." >&2
-       exit 1
-       ;;
-  2)   echo "Unknown server address \"$SERVERADDRESS\" !" >&2
-       exit 1
-       ;;
-  127) echo "Test command \"getent\" not found !" >&2
-       echo "This script can run without the test, if you comment it out." >&2
-       exit 1
-       ;;
-  *)   echo "Unknown error in test command \"getentahosts $SERVERADDRESS\" !" >&2
-       echo "This script can run without the test, if you comment it out." >&2
-       exit 1
-       ;;
-esac
-# if the test with getent does not work for you comment out this section
-# ending here
+# check if provided address is valid, if command "getent" is available
+#   "getent" uses the gethostbyname function and respects /etc/hosts, if configured in /etc/nsswitch.conf
+#   while "host", "dig" and "nslookup" use only DNS queries
+
+if which getent 2>/dev/null >/dev/null ; then
+   getent ahosts "$SERVERADDRESS" 2>/dev/null >/dev/null
+   case "$?" in
+     0)   # test was successfull
+          ;;
+     1)   echo "Test command \"getent\" does not support the database \"ahosts\" !" >&2
+          echo "This script can run without the test, if you comment it out." >&2
+          exit 1
+          ;;
+     2)   echo "Unknown server address \"$SERVERADDRESS\" !" >&2
+          exit 1
+          ;;
+     127) # this error should never hit, because we tested if "getent" is in the path
+          # in the outer if statement
+          echo "Test command \"getent\" not found !" >&2
+          echo "This script can run without the test, if you comment it out." >&2
+          exit 1
+          ;;
+     *)   echo "Unknown error in test command \"getentahosts $SERVERADDRESS\" !" >&2
+          echo "This script can run without the test, if you comment it out." >&2
+          exit 1
+          ;;
+   esac
+   # if the test with getent does not work for you comment out this section
+   # ending here
+fi
 
 # sed has different options on Linux and MacOS, so we have to check which it is
 if sed --version 2>/dev/null | head -1 | grep -q GNU ; then
