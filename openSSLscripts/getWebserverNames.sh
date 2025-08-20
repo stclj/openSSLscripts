@@ -112,11 +112,11 @@ echo "" |
 openssl s_client $EXTRAOPTS -showcerts -connect $SERVERADDRESS:$SERVERPORT -servername $SERVERADDRESS 2>/dev/null |
 if [ $GNUSED ] ; then
    # it's Linux (GNU sed):
-   sed -n "s|^\( *[0-9]\+ s:\).*/\(CN=[^/]\+\)\(/.*\)*$|        \1 \2|p"
+   sed -n "s|^\( *[0-9]\+ s:\).*\(CN=[^/,]\+\)\(/.*\)*$|        \1 \2|p"
    # Last sed breaks the long lines at comma (,) and indents the rest
 else
    # it's MacOS, so it looks a bit more complicated:
-   sed -nE "s|^( *[0-9]+ s:).*/(CN=[^/]+)(/.*)*$|        \1 \2|p"
+   sed -nE "s|^( *[0-9]+ s:).*(CN=[^/,]+)(/.*)*$|        \1 \2|p"
    # Last sed breaks the long lines at comma (,) and indents the rest
 fi
 
